@@ -3,7 +3,7 @@ name: doom-infra
 services:
   doom-postgres:
     container_name: doom-postgres
-    build: .
+    build: ./postgres
     restart: unless-stopped
     volumes:
       - "/home/nebula/bkan0n/appdata/doom-postgres:/var/lib/postgresql/data"
