@@ -37,7 +37,7 @@ services:
       POSTGRES_USER: ${PSQL_USER}
       POSTGRES_PASSWORD: ${PSQL_PASSWORD}
     depends_on:
-      db:
+      doom-postgres:
         condition: service_healthy
     networks:
       - doom-network
