@@ -21,29 +21,9 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-
-  # doom-postgres-backup:
-  #   image: eeshugerman/postgres-backup-s3:15
-  #   container_name: doom-postgres-backup
-  #   restart: unless-stopped
-  #   environment:
-  #     SCHEDULE: '@daily'
-  #     BACKUP_KEEP_DAYS: 7     # optional
-  #     S3_REGION: us-west-002
-  #     S3_ACCESS_KEY_ID: ${KEY_ID}
-  #     S3_SECRET_ACCESS_KEY: ${KEY_SECRET}
-  #     S3_BUCKET: doom-backups
-  #     S3_PREFIX: backups
-  #     S3_ENDPOINT: ${S3_ENDPOINT}
-  #     POSTGRES_HOST: doom-postgres
-  #     POSTGRES_DATABASE: doom3
-  #     POSTGRES_USER: ${PSQL_USER}
-  #     POSTGRES_PASSWORD: ${PSQL_PASSWORD}
-  #   depends_on:
-  #     doom-postgres:
-  #       condition: service_healthy
-  #   networks:
-  #     - doom-network
+    labels:
+      logging: "promtail"
+      logging_jobname: "containerlogs"
 
 networks:
   doom-network:
